@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-final homeUrl = Uri.parse('https://blog.codefactory.ai');
+final homeUrl = Uri.parse('https://ordinary-hide-5fe.notion.site/Portfolio-ba896d3922ae40d68b5beab74ab3aabe?pvs=4');
 
 class HomeScreen extends StatelessWidget {
   WebViewController controller = WebViewController()
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('Code Factory'),
+        title: Text('NN'),
         centerTitle: true,
         actions: [
           IconButton(
