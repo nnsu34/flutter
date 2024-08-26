@@ -15,22 +15,24 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF335CB0),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 32.0,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'asset/img/logo.png',
-            ),
-            SizedBox(height: 28.0),
-            CircularProgressIndicator(
-              color: Colors.white,
-            ),
-          ],
+      backgroundColor: Color(0xFFf5f7f7),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 130.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'asset/img/flutter_logo.png',
+              ),
+              SizedBox(height: 30.0),
+              CircularProgressIndicator(
+                color: Color(0xFFe0e0e0)
+              ),
+            ],
+          ),
         ),
       ),
     );
