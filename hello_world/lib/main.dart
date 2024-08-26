@@ -11,6 +11,7 @@ void main() {
             'Hello World',
             style: TextStyle(
               color: Colors.white,
+              fontSize: 17.0,
             ),
           ),
         ),
