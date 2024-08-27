@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989219768771",
+    "project_id": "login-cba64",
+    "storage_bucket": "login-cba64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989219768771:android:e70d0d45d33f6e4ed7d576",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT0Rn82Be-46sOsSrtt4l4RWGeEIrmUss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
