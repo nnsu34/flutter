@@ -42,8 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('로그인 화면'), // 제목 텍스트 위젯을 사용
-        centerTitle: true, // 수정된 부분: 제목을 중앙에 맞추기
+        title: Text('로그인 화면'),
       ),
       body: Padding(
         padding: EdgeInsets.all(15),
@@ -64,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextFormField(
                 decoration: InputDecoration(labelText: 'Password'),
                 controller: _passwordController,
-                obscureText: true, // 수정된 부분: 비밀번호 입력 시 텍스트 숨김
+                obscureText: true, // 비밀번호 입력 시 텍스트 숨김
                 validator: (value) {
                   if (value!.isEmpty) {
                     return '비밀번호를 입력해주세요.';
@@ -86,3 +85,5 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
