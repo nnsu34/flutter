@@ -12,18 +12,17 @@ class _SignUpScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   Future<void> signUp() async {
     if (_formKey.currentState!.validate()) {
       if (_passwordController.text != _confirmPasswordController.text) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text('비밀번호가 다릅니다.')));
+        return;
       }
       try {
-        final credential =
-            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _emailController.text,
           password: _passwordController.text,
         );
@@ -59,7 +58,9 @@ class _SignUpScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('회원가입 화면'),
+        title: Text('Signup'),
+        centerTitle: true, // 제목을 중앙에 정렬
+        backgroundColor: Color(0xFFffe600), // 밝은 노란색
       ),
       body: Padding(
         padding: EdgeInsets.all(15),
@@ -69,7 +70,17 @@ class _SignUpScreenState extends State<SignupScreen> {
             children: [
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 포커스 시 밑부분 색상
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 비활성화 상태 밑부분 색상
+                  ),
+                  labelStyle: TextStyle(color: Colors.black), // 라벨 텍스트 색상
+                ),
+                cursorColor: Colors.black, // 커서 색상
                 validator: (value) {
                   if (value!.isEmpty) {
                     return '이메일을 입력해주세요.';
@@ -79,7 +90,17 @@ class _SignUpScreenState extends State<SignupScreen> {
               ),
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'name'),
+                decoration: InputDecoration(
+                  labelText: 'Name',
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 포커스 시 밑부분 색상
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 비활성화 상태 밑부분 색상
+                  ),
+                  labelStyle: TextStyle(color: Colors.black), // 라벨 텍스트 색상
+                ),
+                cursorColor: Colors.black, // 커서 색상
                 validator: (value) {
                   if (value!.isEmpty) {
                     return '이름을 입력해주세요.';
@@ -89,8 +110,18 @@ class _SignUpScreenState extends State<SignupScreen> {
               ),
               TextFormField(
                 controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 포커스 시 밑부분 색상
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 비활성화 상태 밑부분 색상
+                  ),
+                  labelStyle: TextStyle(color: Colors.black), // 라벨 텍스트 색상
+                ),
                 obscureText: true,
+                cursorColor: Colors.black, // 커서 색상
                 validator: (value) {
                   if (value!.isEmpty) {
                     return '패스워드를 입력해주세요.';
@@ -100,8 +131,18 @@ class _SignUpScreenState extends State<SignupScreen> {
               ),
               TextFormField(
                 controller: _confirmPasswordController,
-                decoration: InputDecoration(labelText: 'confirm Password'),
+                decoration: InputDecoration(
+                  labelText: 'Confirm Password',
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 포커스 시 밑부분 색상
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black), // 비활성화 상태 밑부분 색상
+                  ),
+                  labelStyle: TextStyle(color: Colors.black), // 라벨 텍스트 색상
+                ),
                 obscureText: true,
+                cursorColor: Colors.black, // 커서 색상
                 validator: (value) {
                   if (value!.isEmpty) {
                     return '패스워드를 확인해주세요.';
@@ -110,7 +151,14 @@ class _SignUpScreenState extends State<SignupScreen> {
                 },
               ),
               SizedBox(height: 20),
-              ElevatedButton(onPressed: signUp, child: Text('회원가입')),
+              ElevatedButton(
+                onPressed: signUp,
+                child: Text('Signup'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black, // 배경색
+                  foregroundColor: Colors.white, // 텍스트 색상
+                ),
+              ),
             ],
           ),
         ),

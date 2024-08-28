@@ -4,7 +4,6 @@ import 'screen/login_screen.dart';
 import 'screen/chat_screen.dart';
 import 'screen/signup_screen.dart';
 import 'screen/splash_screen.dart';
-import 'screen/chat_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/login_provider.dart';
 
@@ -23,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/splash',
       routes: {
         '/splash': (context) => SplashScreen(),
