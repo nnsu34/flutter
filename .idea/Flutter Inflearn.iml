@@ -9,6 +9,18 @@
       <excludeFolder url="file://$MODULE_DIR$/splash_screen/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/splash_screen/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/splash_screen/build" />
+      <excludeFolder url="file://$MODULE_DIR$/login/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/login/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/login/build" />
+      <excludeFolder url="file://$MODULE_DIR$/padding/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/padding/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/padding/build" />
+      <excludeFolder url="file://$MODULE_DIR$/row_and_column/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/row_and_column/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/row_and_column/build" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/web_view/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
