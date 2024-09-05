@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFffe53b), // 노란색 배경
+      backgroundColor: Colors.yellow, // 노란색 배경
       body: Center(
         child: Text(
           'CHAT',
