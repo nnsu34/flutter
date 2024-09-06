@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
-        title: Text('BLOG'),
+        title: Text('NN'),
         centerTitle: true,
         actions: [
           IconButton(
