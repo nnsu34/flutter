@@ -1,3 +1,5 @@
+import 'package:chat_app/screen/signup_screen.dart';
+import 'package:chat_app/screen/success_screen.dart';
 import 'package:flutter/material.dart';
 import 'screen/login_screen.dart';
 
@@ -14,7 +16,7 @@ class Myapp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => LoginScreen(),
-        '/signup': (context) => SignUpScreen(),
+        '/signup': (context) => SignupScreen(),
         '/success': (context) => SuccessScreen(),
       },
     );

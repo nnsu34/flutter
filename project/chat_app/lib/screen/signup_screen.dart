@@ -10,7 +10,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign up to NN'),
+        title: Text('회원가입 화면'),
       ),
       body: Padding(
         padding: EdgeInsets.all(15),

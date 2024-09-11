@@ -12,7 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign in to NN'),
+        title: Text('로그인 화면'),
       ),
       body: Padding(
         padding: EdgeInsets.all(15),
