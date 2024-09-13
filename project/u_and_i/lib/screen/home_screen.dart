@@ -121,7 +121,7 @@ class _Bottom extends StatelessWidget {
     return Expanded(
       child: Container(
         child: Image.asset(
-          'asset/img/middle_image.png',
+          'asset/img/',
         ),
       ),
     );
