@@ -6,7 +6,7 @@ final homeUrl = Uri.parse(
 
 class HomeScreen extends StatelessWidget {
 
-  WebViewController controller = WebViewController()
+  final WebViewController controller = WebViewController()
     ..loadRequest(homeUrl)
     ..setJavaScriptMode(JavaScriptMode.unrestricted);
 
