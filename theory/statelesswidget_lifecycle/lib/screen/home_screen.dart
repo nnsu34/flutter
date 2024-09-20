@@ -20,8 +20,8 @@ class TestWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     print('--- 빌드 ---');
     return Container(
-      width: 50,
-      height: 50,
+      width: 50.0,
+      height: 50.0,
       color: Colors.red,
     );
   }
