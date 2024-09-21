@@ -8,7 +8,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool show = false;
+  bool show = true;
   Color color = Colors.red;
 
   @override
@@ -25,18 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   color = color == Colors.blue ? Colors.red : Colors.blue;
                 });
               },
-              child: CodeFactoryWidget(
+              child: TestWidget(
                 color: color,
               ),
-            ),
-            SizedBox(height: 32.0),
+            ), //'show' 값이 true일 때만 TestWidget을 보여줌
+            SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  show = !show;
+                  // show = show == true ? falase : true;
+                  show = !show; // 위 코드를 간단하게 true/false 전환으로 수정
                 });
               },
-              child: Text('클릭해서 보이기/안보이기'),
+              child: Text('보이기/안 보이기'),
             ),
           ],
         ),
@@ -45,25 +46,24 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class CodeFactoryWidget extends StatefulWidget {
+class TestWidget extends StatefulWidget {
   final Color color;
 
-  CodeFactoryWidget({
-    super.key,
+  TestWidget({
     required this.color,
-  }) {
+      super.key}) {
     print('1) Stateful Widget Constructor');
   }
 
   @override
-  State<CodeFactoryWidget> createState() {
+  State<TestWidget> createState() {
     print('2) Stateful Widget Create State');
-
-    return _CodeFactoryWidgetState();
+    return _TestWidgetState();
   }
 }
 
-class _CodeFactoryWidgetState extends State<CodeFactoryWidget> {
+class _TestWidgetState extends State<TestWidget> {
+
   @override
   void initState() {
     print('3) Stateful Widget initState');
@@ -81,8 +81,8 @@ class _CodeFactoryWidgetState extends State<CodeFactoryWidget> {
     print('5) Stateful Widget build');
     return Container(
       color: widget.color,
-      width: 50.0,
-      height: 50.0,
+      width: 50,
+      height: 50,
     );
   }
 

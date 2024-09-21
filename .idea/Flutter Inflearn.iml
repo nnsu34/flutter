@@ -30,6 +30,12 @@
       <excludeFolder url="file://$MODULE_DIR$/project/u_and_i/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/project/u_and_i/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/project/u_and_i/build" />
+      <excludeFolder url="file://$MODULE_DIR$/theory/statefulwidget_lifecycle/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/theory/statefulwidget_lifecycle/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/theory/statefulwidget_lifecycle/build" />
+      <excludeFolder url="file://$MODULE_DIR$/theory/statelesswidget_lifecycle/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/theory/statelesswidget_lifecycle/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/theory/statelesswidget_lifecycle/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
