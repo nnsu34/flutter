@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -20,29 +18,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
     timer = Timer.periodic(
       Duration(seconds: 2),
-          (timer) {
+      (timer) {
         int currentPage = controller.page!.toInt();
         int nextPage = currentPage + 1;
 
         if (nextPage > 4) {
           nextPage = 0;
         }
-
-        controller.animateToPage(
-          nextPage,
-          duration: Duration(milliseconds: 500),
-          curve: Curves.linear,
-        );
+        controller.animateToPage(nextPage,
+            duration: Duration(milliseconds: 500), curve: Curves.linear);
       },
     );
   }
 
   @override
   void dispose() {
-    if(timer != null){
+    if (timer != null) {
       timer!.cancel();
     }
-
     controller.dispose();
 
     super.dispose();
@@ -56,10 +49,10 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [1, 2, 3, 4, 5]
             .map(
               (e) => Image.asset(
-            'asset/img/image_$e.jpg',
-            fit: BoxFit.cover,
-          ),
-        )
+                'asset/img/image_$e.jpg',
+                fit: BoxFit.cover,
+              ),
+            )
             .toList(),
       ),
     );
