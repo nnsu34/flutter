@@ -1,77 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink[100],
-      body: SafeArea(
-        bottom: false,
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              _Top(
-                selectedDate: selectedDate,
-                onPressed: onHeartPressed,
-              ),
-
-              /// 이미지
-              _Bottom(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  void onHeartPressed(){
-    showCupertinoDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (BuildContext context) {
-        return Align(
-          alignment: Alignment.center,
-          child: Container(
-            color: Colors.white,
-            height: 300.0,
-            child: CupertinoDatePicker(
-              mode: CupertinoDatePickerMode.date,
-              initialDateTime: selectedDate,
-              maximumDate: DateTime.now(),
-              onDateTimeChanged: (DateTime date) {
-                setState(() {
-                  selectedDate = date;
-                });
-              },
-              dateOrder: DatePickerDateOrder.ymd,
+        backgroundColor: Colors.pink[100],
+        body: SafeArea(
+          bottom: false,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                _Top(),
+                _Bottom(),
+              ],
             ),
           ),
-        );
-      },
-    );
+        ));
   }
 }
 
-class _Top extends StatelessWidget {
-  final DateTime selectedDate;
-  final VoidCallback? onPressed;
+class _Top extends StatefulWidget {
+  const _Top({super.key});
 
-  const _Top({
-    required this.selectedDate,
-    required this.onPressed,
-    super.key,
-  });
+  @override
+  State<_Top> createState() => _TopState();
+}
+
+class _TopState extends State<_Top> {
+  DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +47,7 @@ class _Top extends StatelessWidget {
               style: textTheme.displayLarge,
             ),
             Text(
-              '우리 처음 만난날',
+              '우리 처음 만난 날',
               style: textTheme.bodyLarge,
             ),
             Text(
@@ -95,9 +55,33 @@ class _Top extends StatelessWidget {
               style: textTheme.bodyMedium,
             ),
             IconButton(
-              iconSize: 60.0,
+              iconSize: 60,
               color: Colors.red,
-              onPressed: onPressed,
+              onPressed: () {
+                showCupertinoDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  builder: (BuildContext context) {
+                    return Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          color: Colors.white,
+                          height: 300,
+                          child: CupertinoDatePicker(
+                            mode: CupertinoDatePickerMode.date,
+                            initialDateTime: selectedDate,
+                            maximumDate: DateTime.now(),
+                            onDateTimeChanged: (DateTime date) {
+                              setState(() {
+                                selectedDate = date;
+                              });
+                            },
+                            dateOrder: DatePickerDateOrder.ymd,
+                          ),
+                        ));
+                  },
+                );
+              },
               icon: Icon(
                 Icons.favorite,
               ),
