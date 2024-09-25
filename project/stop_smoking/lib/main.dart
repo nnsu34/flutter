@@ -12,28 +12,30 @@ void main() {
           displayLarge: TextStyle( //숫자
             fontSize: 120,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF53736A),
+            color: Color(0xFF53736A).withOpacity(0.9),
           ),
 
           displayMedium: TextStyle( // day
-            fontSize: 40,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF53736A),
+            color: Color(0xFF53736A).withOpacity(0.7),
           ),
 
           bodyLarge: TextStyle( // stop smoking
-            fontSize: 30.0,
+            fontSize: 50.0,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF53736A),
+            color: Color(0xFF53736A).withOpacity(1),
           ),
 
           bodyMedium: TextStyle( // 현재 날짜
-            fontSize: 18.0,
-            color: Color(0xFF53736A),
+            fontSize: 20.0,
+            color: Color(0xFF53736A).withOpacity(0.9),
+            fontWeight: FontWeight.bold,
+
           ),
         ),
       ),
-      home: HomeScreen(), // HomeScreen을 시작 화면으로 설정
+      home: HomeScreen(),
     ),
   );
 }

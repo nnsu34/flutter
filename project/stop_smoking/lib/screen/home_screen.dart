@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart'; // 날짜 형식 변환을 위한 intl 패키지
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -53,27 +54,35 @@ class _Top extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme; // 텍스트 테마 사용
 
+    // 날짜 형식 변환 (년.월(영어).일)
+    String formattedDate = DateFormat('yyyy.MMM.dd').format(selectedDate);
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Stop Smoking', style: textTheme.bodyLarge), // 타이틀
+              Text(
+                'Stop\nSmoking',
+                style: textTheme.bodyLarge?.copyWith(
+                  height: 1, // 줄 간격 조정
+                ),
+              ), // 타이틀
               IconButton(
-                icon: Icon(Icons.circle, color: Color(0xFF53736A), size: 40.0),
+                icon: Icon(Icons.circle, color: Color(0xFF53736A).withOpacity(1), size: 60.0),
                 onPressed: () {
                   _selectDate(context); // 날짜 선택 다이얼로그 열기
                 },
               ),
             ],
           ),
-          SizedBox(height: 8.0),
+          SizedBox(height: 9.0),
           // 선택된 날짜 표시
           Text(
-            '${selectedDate.year}.${selectedDate.month}.${selectedDate.day}',
+            formattedDate, // 형식 변환된 날짜 표시
             style: textTheme.bodyMedium,
           ),
         ],
@@ -128,7 +137,7 @@ class _Top extends StatelessWidget {
                 child: Text(
                   'Cancel',
                   style: TextStyle(
-                    fontSize: 18, // 제목 크기
+                    fontSize: 18,
                     fontFamily: 'ubuntu',
                     color: Color(0xFF515252),
                   ),
@@ -141,7 +150,7 @@ class _Top extends StatelessWidget {
                 child: Text(
                   'Confirm',
                   style: TextStyle(
-                    fontSize: 18, // 제목 크기
+                    fontSize: 18,
                     fontFamily: 'ubuntu',
                     color: Color(0xFF515252),
                   ),
@@ -192,12 +201,11 @@ class _Bottom extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start, // 왼쪽 정렬
             children: [
               Text(
-                'day', // "D-day" 대신 "day"로 변경
+                'day',
                 style: textTheme.displayMedium?.copyWith(
                   fontFamily: 'ubuntu',
                 ),
               ),
-              SizedBox(height: 8.0),
               Text(
                 formattedDiffDays, // D-Day 숫자 표시
                 style: textTheme.displayLarge?.copyWith(
