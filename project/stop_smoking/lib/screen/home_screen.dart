@@ -72,7 +72,8 @@ class _Top extends StatelessWidget {
                 ),
               ), // 타이틀
               IconButton(
-                icon: Icon(Icons.circle, color: Color(0xFF53736A).withOpacity(1), size: 60.0),
+                icon: Icon(Icons.circle,
+                    color: Color(0xFF53736A).withOpacity(1), size: 60.0),
                 onPressed: () {
                   _selectDate(context); // 날짜 선택 다이얼로그 열기
                 },
