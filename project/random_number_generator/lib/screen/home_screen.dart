@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:random_number_generator/component/number_to_image.dart';
 import 'package:random_number_generator/constant/color.dart';
-import 'package:random_number_generator/constant/color.dart';
+import 'dart:math';
+import 'package:random_number_generator/screen/setting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,11 +13,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<ing> numbers = [
+  List<int> numbers = [
     123,
     456,
     789,
   ];
+
+  int maxNumber = 1000;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               /// 제목과 아이콘 버튼이 있는 곳
-              _Header(),
+              _Header(onPressed: onSettingIconPressed),
 
               /// 숫자가 있는 곳
               _Body(
@@ -37,17 +42,50 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               /// 버튼이 있는 곳
-              _Footer(),
+              _Footer(onPressed: generateRandomNumber),
             ],
           ),
         ),
       ),
     );
   }
+
+  onSettingIconPressed() async {
+    final result = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) {
+          return SettingScreen(
+            maxNumber: maxNumber,
+          );
+        },
+      ),
+    );
+    maxNumber = result;
+  }
+
+  generateRandomNumber() {
+    final rand = Random();
+    final Set<int> newNumbers = {};
+
+    while (newNumbers.length < 3) {
+      final randomNumber = rand.nextInt(maxNumber);
+
+      newNumbers.add(randomNumber);
+    }
+
+    setState(() {
+      numbers = newNumbers.toList();
+    });
+  }
 }
 
 class _Header extends StatelessWidget {
-  const _Header({super.key});
+  final VoidCallback onPressed;
+
+  const _Header({
+    required this.onPressed,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +102,7 @@ class _Header extends StatelessWidget {
         ),
         IconButton(
           color: redColor,
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(
             Icons.settings,
           ),
@@ -88,18 +126,9 @@ class _Body extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: numbers
-            .map((e) => e.toString().split(''))
             .map(
-              (e) => Row(
-                children: e
-                    .map(
-                      (number) => Image.asset(
-                        'asset/img/$number.png',
-                        width: 60,
-                        height: 80,
-                      ),
-                    )
-                    .toList(),
+              (e) => NumberToImage(
+                number: e,
               ),
             )
             .toList(),
@@ -109,12 +138,17 @@ class _Body extends StatelessWidget {
 }
 
 class _Footer extends StatelessWidget {
-  const _Footer({super.key});
+  final VoidCallback onPressed;
+
+  const _Footer({
+    required this.onPressed,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: redColor,
         foregroundColor: Colors.white,
