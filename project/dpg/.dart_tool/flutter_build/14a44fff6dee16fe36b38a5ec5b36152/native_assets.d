@@ -1,0 +1,1 @@
+ C:\\Users\\riant\\Documents\\Flutter\ Inflearn\\project\\dpg\\.dart_tool\\flutter_build\\14a44fff6dee16fe36b38a5ec5b36152\\native_assets.yaml: 
