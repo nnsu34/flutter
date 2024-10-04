@@ -62,12 +62,10 @@ flutter:
     - asset/img/
 
   fonts:
-    - family: Paperlogy
+    - family: safety
       fonts:
-        - asset: asset/font/Paperlogy-3Light.ttf
-        - asset: asset/font/Paperlogy-5Medium.ttf
-          weight: 500
-        - asset: asset/font/Paperlogy-7Bold.ttf
+        - asset: asset/font/Electrical Safety Regular.ttf
+        - asset: asset/font/Electrical Safety Bold.ttf
           weight: 700
 
   # To add assets to your application, add an assets section, like this:
